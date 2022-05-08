@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM in JS</title>
+    <style>
+        article{
+            border: 3px solid tomato;
+            margin: 5px 5px;
+            padding: 5px 5px;
+            border-radius: 40px;
+        }
+        .special h3{}
+
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>DOM-Document Object Model</h1>
+            <article>
+                <h3>Article-1</h3>
+                <p id="first" class="author">Author-1</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, repudiandae?</p>
+            </article>
+            <article class="special">
+                <h3>Article-2</h3>
+                <p class="author">Author-2</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, architecto?</p>
+            </article>
+            <article id="last">
+                <h3>Article-3</h3>
+                <p class="author">Author-3</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, distinctio.</p>
+            </article>
+        </section>
+        
+    </main>
+    <script>
+        document.body.style.backgroundColor='lightgrey';
+        document.getElementById('first').style.color = 'red';
+        document.getElementById('first').style.fontSize = '40px';
+        
+
+        // Using getElementByClassNAme or id or TagName//
+        var author=document.getElementsByClassName('author');
+        for (let index = 0; index < author.length; index++) {
+            const element = author[index];
+            element.innerHTML='Lekhok-'+ index;
+            element.style.backgroundColor= 'lightblue';
+            element.style.margin ='10px';
+        }
+        var art =document.querySelectorAll('.special h3');
+        for(let i=0;i<art.length;i++){
+            var element=art[i];
+            element.innerHTML='Article-2'+'(Special)';
+
+        }
+
+        // Using Queryselector//
+        document.querySelector('h1').setAttribute('title','Here we go again');
+
+        //New element add//
+        const add = document.getElementById('last');
+        const dom = document.createElement('p');
+        dom.innerHTML='Added By Javascript';
+        add.appendChild(dom);
+       
+
+    </script>    
+</body>
+</html>
